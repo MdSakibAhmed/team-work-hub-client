@@ -104,8 +104,8 @@ const Login = () => {
             </p>
             <p className="">
               New here ?
-              <NavLink to={`/register`}>
-                <Button label="button" styles="text-blue-600" />
+              <NavLink to={`/register`} state={{ pathName: pathName} }>
+                <Button label="register" styles="text-blue-600" />
               </NavLink>{" "}
             </p>
           </div>

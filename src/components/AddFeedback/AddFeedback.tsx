@@ -39,7 +39,7 @@ const AddFeedback = ({
 
         <Button
           type="submit"
-          styles="bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 font-semibold py-2 px-4 rounded-lg"
+          styles="bg-blue-800 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 font-semibold py-2 px-4 rounded-lg"
           label="Add "
         />
       </div>

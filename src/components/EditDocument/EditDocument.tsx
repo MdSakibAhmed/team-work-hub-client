@@ -42,23 +42,17 @@ const EditDocument = () => {
     }
   };
   return (
-    <div className=" flex m-6 gap-2">
-      <div className="w-3/4 ">
+    <div className=" flex flex-col md:flex-row m-6 gap-2">
+      <div className=" md:w-3/4 w-full">
         {<TextEditor documentId={docId as string} />}
       </div>
-      <div className="w-1/4">
+      <div className="md:w-1/4 w-full">
         <h1 className="text-center text-xl border rounded bg-blue-800 text-white p-4">
           Feedback
         </h1>
 
         {!isOpenField && (
           <div className="flex mt-4 ">
-            {/* <button
-              onClick={() => setIsOpenField(true)}
-              className="text-white bg-blue-800 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 font-semibold py-2 px-4 rounded-lg"
-            >
-              add Feedback
-            </button> */}
             <Button
               label="Add Feedback"
               styles="text-white bg-blue-800 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 font-semibold py-2 px-4 rounded-lg"

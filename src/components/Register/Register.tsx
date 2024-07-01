@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { authApi } from "../redux/api/authApi";
 import { useAppDispatch } from "../redux/app/hooks";
 import { setToken, setUser } from "../redux/features/auth/authSlice";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +14,9 @@ const Register = () => {
     password: "",
     confirmPassword: "",
   });
+
+  const location = useLocation();
+  const pathName = location.state?.pathName || "/";
   const [error, setError] = useState("");
   const [register] = authApi.useRegisterMutation();
   const navigate = useNavigate();
@@ -27,7 +30,7 @@ const Register = () => {
     });
   };
 
-  console.log(formData);
+
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -55,8 +58,9 @@ const Register = () => {
         })
       );
       dispacth(setToken(res.data.token));
+      console.log("pathName",pathName);
+      navigate(pathName, { replace: true });
 
-      navigate("/");
     } else {
       Swal.fire("Failed to register", "", "error");
     }

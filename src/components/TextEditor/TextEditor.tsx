@@ -88,7 +88,7 @@
 
 // src/components/TextEditor.tsx
 
-import React, {  useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { io, Socket } from "socket.io-client";
@@ -96,7 +96,6 @@ import "./TextEditor.css";
 import { FiSend } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { selectUser } from "../redux/features/auth/authSlice";
-
 
 interface TextEditorProps {
   documentId: string;
@@ -111,16 +110,21 @@ const TextEditor: React.FC<TextEditorProps> = ({ documentId }) => {
   const [messages, setMessages] = useState<{ text: string; sender: string }[]>(
     []
   );
-  const [username] = useState<string>(user?.email as string);
+  const [username] = useState<string>(user?.username as string);
 
   useEffect(() => {
- // connect socket
-    const newSocket = io("https://team-work-hub-server.onrender.com");
+    // connect socket
+    const newSocket = io(
+      `${
+        process.env.NODE_ENV == "development"
+          ? "http://localhost:5000"
+          : "https://team-work-hub-server.onrender.com"
+      }`
+    );
     setSocket(newSocket);
 
     newSocket.emit("joinDocument", documentId);
     newSocket.on("message", (data: { text: string; sender: string }) => {
-   
       setMessages((prevMessages) => [
         ...prevMessages,
         { text: data.text, sender: data.sender },
@@ -143,7 +147,11 @@ const TextEditor: React.FC<TextEditorProps> = ({ documentId }) => {
     };
   }, [documentId]);
 
-  const handleQuillChange = (content: string, delta: unknown, source: string) => {
+  const handleQuillChange = (
+    content: string,
+    delta: unknown,
+    source: string
+  ) => {
     if (source === "user") {
       socket?.emit("sendChanges", delta);
       socket?.emit("saveDocument", { content: quillContent });
@@ -185,8 +193,8 @@ const TextEditor: React.FC<TextEditorProps> = ({ documentId }) => {
   ];
 
   return (
-    <div className=" flex gap-4 flex-row-reverse">
-      <div className="w-3/4">
+    <div className=" flex gap-4 md:flex-row-reverse flex-col">
+      <div className="md:w-3/4 w-full">
         <ReactQuill
           ref={quillRef}
           value={quillContent}
@@ -196,19 +204,19 @@ const TextEditor: React.FC<TextEditorProps> = ({ documentId }) => {
           modules={{
             toolbar: toolbarOptions,
           }}
-          style={{ height: "400px" }}
+          style={{ height: "500px" }}
         />
       </div>
 
-      <div className="w-1/4">
+      <div className="md:w-1/4 w-full mt-28 md:mt-0 ">
         <h1 className="text-2xl text-center bg-blue-800 p-4 text-white rounded">
-          Chat With your teams
+          Chat with your teams
         </h1>
         <div className="chat-container">
           <div className="chat-window">
             <div className="messages">
               {messages.map((msg, index) => (
-                <div key={index} >
+                <div key={index}>
                   <p>{msg.sender}</p>
                   <p className="message my-message">{msg.text}</p>
                 </div>

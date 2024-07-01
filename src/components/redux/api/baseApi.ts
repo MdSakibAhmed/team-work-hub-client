@@ -6,7 +6,6 @@ const baseQuery = fetchBaseQuery({
     process.env.NODE_ENV == "development"
       ? "http://localhost:5000/api"
       : "https://team-work-hub-server.onrender.com/api",
-  // baseUrl: "https://team-work-hub-server.onrender.com/api",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
