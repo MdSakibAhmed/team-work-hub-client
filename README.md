@@ -54,11 +54,19 @@ Ensure you have the following installed:
 
 1. Clone the repository:
 
-   ```bash
+   ```
    git clone https://github.com/MdSakibAhmed/team-work-hub-client.git
    cd team-work-hub-client
-```2. Install dependencies:
+   ```
+2. Install dependencies:
 
-```bash
+```
 npm install
 ```
+
+3. Create a .env.local file in the root of the frontend directory with the following content:
+4. Start the development server:
+```
+npm run dev
+```
+
