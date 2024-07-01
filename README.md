@@ -57,7 +57,9 @@ npm install
 ```
 
 3. Create a .env.local file in the root of the frontend directory with the following content:
-4. Start the development server:
+
+   
+5. Start the development server:
 ```
 npm run dev
 ```
