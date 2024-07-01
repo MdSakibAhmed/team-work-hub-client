@@ -47,8 +47,9 @@ Ensure you have the following installed:
 1. Clone the repository:
 
  ```
-   git clone https://github.com/MdSakibAhmed/team-work-hub-client.git
-   cd team-work-hub-client
+ git clone https://github.com/MdSakibAhmed/team-work-hub-client.git
+ 
+ cd team-work-hub-client
  ```
 2. Install dependencies:
 
