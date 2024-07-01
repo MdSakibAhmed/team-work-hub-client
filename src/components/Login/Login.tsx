@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { authApi } from "../redux/api/authApi";
 import { useAppDispatch } from "../redux/app/hooks";
 import { setToken, setUser } from "../redux/features/auth/authSlice";
+import Button from "../../shared/Button";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -33,8 +34,14 @@ const Login = () => {
     if (res.statusCode == 200) {
       Swal.fire("Successfully login", "", "success");
       console.log(res);
-    //   dispacth(setUser({ email: res.data.email, userId: res.data.id }));
-      dispacth(setUser({ email: res.data._doc.email, userId: res.data._doc._id,username: res.data._doc._id}));
+      //   dispacth(setUser({ email: res.data.email, userId: res.data.id }));
+      dispacth(
+        setUser({
+          email: res.data._doc.email,
+          userId: res.data._doc._id,
+          username: res.data._doc._id,
+        })
+      );
 
       dispacth(setToken(res.data.token));
       navigate(pathName, { replace: true });
@@ -83,12 +90,11 @@ const Login = () => {
             />
           </div>
           <div className="flex items-center justify-between">
-            <button
+            <Button
               type="submit"
-              className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
-            >
-              Login
-            </button>
+              styles="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
+              label="Login"
+            />
           </div>
           <div className="mt-6 flex justify-between">
             <p className="font-bold text-blue-800">
@@ -99,8 +105,7 @@ const Login = () => {
             <p className="">
               New here ?
               <NavLink to={`/register`}>
-                {" "}
-                <button className="text-blue-600">Register</button>
+                <Button label="button" styles="text-blue-600" />
               </NavLink>{" "}
             </p>
           </div>

@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 import { docApi } from "../redux/api/docApi";
+import Button from "../../shared/Button";
 
 const CreateDoc = () => {
-  const [formData, setFormData] = useState<{title:string,content:string}>({
-    title:"",
+  const [formData, setFormData] = useState<{ title: string; content: string }>({
+    title: "",
     content: "",
   });
   const navigate = useNavigate();
@@ -77,12 +78,11 @@ const CreateDoc = () => {
             />
           </div>
           <div className="flex items-center justify-between">
-            <button
+            <Button
               type="submit"
-              className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
-            >
-              Create Doc
-            </button>
+              label="Create Doc"
+              styles="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
+            />
           </div>
         </form>
       </div>

@@ -1,18 +1,15 @@
-
-
-
-
-import  { useState } from "react";
+import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/app/hooks";
 import { NavLink } from "react-router-dom";
 import { RootState } from "../redux/app/store";
 import { logOut } from "../redux/features/auth/authSlice";
+import Button from "../../shared/Button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const user = useAppSelector((state: RootState) => state.auth.user);
   const token = useAppSelector((state: RootState) => state.auth.token);
-  const dispacth = useAppDispatch()
+  const dispacth = useAppDispatch();
 
   console.log(user);
   const toggleMenu = () => {
@@ -22,41 +19,42 @@ const Navbar = () => {
   return (
     <nav className="bg-[#e7e7e7]">
       <div className="container mx-auto  py-6   flex justify-around items-center">
-        <div className="text-white text-2xl font-bold">MyLogo</div>
+        <div className="text-white text-2xl font-bold">Team Work Hub</div>
         <div className="hidden md:flex gap-6  ">
           <NavLink to="/" className=" hover:text-gray-500">
             Home
           </NavLink>
-          <NavLink to="/" className=" hover:text-gray-500">
-            About us
-          </NavLink>
-          
         </div>
         <div className="flex gap-2">
           {!token ? (
             <>
               <NavLink to="/register">
-                <button className=" bg-black text-white px-4 py-2 rounded-md">
-                  {" "}
-                  Sign up
-                </button>
+                <Button
+                  label="Sign up"
+                  styles="bg-black text-white px-4 py-2 rounded-md"
+                />
               </NavLink>
-              <NavLink to="/login"><button className="bg-[#1010101A] px-4 py-2 rounded-md">
-                {" "}
-                Sign in
-              </button></NavLink>
-              
+              <NavLink to="/login">
+                <Button
+                  label="Sign in"
+                  styles="bg-[#1010101A] px-4 py-2 rounded-md"
+                />
+              </NavLink>
             </>
           ) : (
             <>
-              <NavLink to={`/createDoc`}><button className="bg-[#1010101A] px-4 py-2 rounded-md">
-                {" "}
-                Create Doc
-              </button></NavLink>
-              <button onClick={ ()=> dispacth( logOut())} className=" bg-black text-white px-4 py-2 rounded-md">
-                {" "}
-                Logout
-              </button>
+              <NavLink to={`/createDoc`}>
+                <Button
+                  label="Create Doc"
+                  styles="bg-[#1010101A] px-4 py-2 rounded-md"
+                />
+              </NavLink>
+
+              <Button
+                onClick={() => dispacth(logOut())}
+                label="Logout"
+                styles="bg-black text-white px-4 py-2 rounded-md"
+              />
             </>
           )}
         </div>
@@ -81,18 +79,9 @@ const Navbar = () => {
       </div>
       {isOpen && (
         <div className="md:hidden">
-          <a href="#" className="block px-4 py-2  hover:text-gray-500">
+          <NavLink to="/" className="block px-4 py-2  hover:text-gray-500">
             Home
-          </a>
-          <a href="#" className="block px-4 py-2  hover:text-gray-500">
-            About
-          </a>
-          <a href="#" className="block px-4 py-2  hover:text-gray-500">
-            Services
-          </a>
-          <a href="#" className="block px-4 py-2  hover:text-gray-500">
-            Contact
-          </a>
+          </NavLink>
         </div>
       )}
     </nav>

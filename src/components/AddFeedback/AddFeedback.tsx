@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { FormSubmitHandler } from "../../types";
+import Button from "../../shared/Button";
 
 const AddFeedback = ({
   handleAddFeedback,
@@ -29,12 +30,18 @@ const AddFeedback = ({
         ></textarea>
       </div>
       <div className="flex ">
-        <button
+        {/* <button
           type="submit"
           className="bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 font-semibold py-2 px-4 rounded-lg"
         >
           Submit
-        </button>
+        </button> */}
+
+        <Button
+          type="submit"
+          styles="bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 font-semibold py-2 px-4 rounded-lg"
+          label="Add "
+        />
       </div>
     </form>
   );
