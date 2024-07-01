@@ -43,7 +43,7 @@ const EditDocument = () => {
   return (
     <div className=" flex m-6 gap-2">
       <div className="w-3/4 ">
-        {docId && <TextEditor documentId={docId} />}
+        { <TextEditor documentId={docId as string} />}
       </div>
       <div className="w-1/4">
         <h1 className="text-center text-xl border rounded bg-blue-800 text-white p-4">
