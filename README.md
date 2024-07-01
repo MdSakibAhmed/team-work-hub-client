@@ -6,12 +6,8 @@
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation and Setup](#installation-and-setup)
-- [Project Structure](#project-structure)
 - [Socket.IO Real-Time Collaboration](#socketio-real-time-collaboration)
 - [Testing](#testing)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -19,45 +15,41 @@ This is the client-side of the Project Management and Collaboration Tool. It is 
 
 ## Features
 
-1. **Project Management**
-   - CRUD operations for projects.
-   - Each project can contain multiple documents.
-
-2. **Document Collaboration**
+1. **Document Collaboration**
    - CRUD operations for documents within projects.
-   - Real-time document editing with a rich text editor using Socket.IO.
+   - Real-time document editing with a rich text editor ( quill ) using Socket.IO.
 
-3. **Feedback and Discussion**
+2. **Feedback and Discussion**
    - Add and view feedback on documents.
    - Integrated real-time chat and discussion forum for team communication.
 
-4. **User Interface and Experience**
+3. **User Interface and Experience**
    - Modern and responsive design.
    - Enhanced user experience for usability and aesthetics.
 
 ## Technologies Used
 
-- **Frontend Framework**: React.js, Next.js
+- **Frontend Framework**: React.js
 - **Real-Time Communication**: Socket.IO
-- **Styling**: CSS/SCSS
-- **Rich Text Editing**: Custom rich text editor integration
+- **Styling**: TalwindCSS
+- **Rich Text Editing**: Custom rich text editor integration ( Quill )
 
 ## Installation and Setup
 
 ### Prerequisites
 
 Ensure you have the following installed:
-- **Node.js** (v14 or higher)
+- **Node.js** (v20 or higher)
 - **npm** (v6 or higher) or **yarn** (v1.22 or higher)
 
 ### Steps
 
 1. Clone the repository:
 
-   ```
+ ```
    git clone https://github.com/MdSakibAhmed/team-work-hub-client.git
    cd team-work-hub-client
-   ```
+ ```
 2. Install dependencies:
 
 ```
@@ -70,3 +62,21 @@ npm install
 npm run dev
 ```
 
+### Socket.IO Real-Time Collaboration
+
+Socket.IO enables real-time features like document collaboration and live chat. Here's how it's implemented on the client-side:
+
+1. Socket Setup: Initialize the Socket.IO client and handle connections.
+2. Joining Rooms: Join specific rooms for different documents to receive and broadcast updates only to relevant users.
+3. Handling Events: Manage incoming and outgoing events for real-time updates.
+
+### Testing
+Testing is essential to ensure the stability and performance of the application. You can implement tests using:
+
+- **vitest**: For unit and integration testing
+- **React Testing Library:** For testing React components and their interactions.
+
+To test run :
+```
+npm run test
+```
