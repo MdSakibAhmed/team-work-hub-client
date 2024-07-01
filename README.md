@@ -1,5 +1,5 @@
 
-# Project Management and Collaboration Tool - Client Side
+# Team Work Hub  - Client Side
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -57,7 +57,7 @@ Ensure you have the following installed:
    ```bash
    git clone https://github.com/your-username/project-management-client.git
    cd project-management-client
-
+```
 
 
 
