@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  react-app:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app-client
+      - /app-client/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev # Override the default CMD with a command suitable for development
