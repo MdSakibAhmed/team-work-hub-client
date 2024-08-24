@@ -11,7 +11,7 @@ const Navbar = () => {
   const token = useAppSelector((state: RootState) => state.auth.token);
   const dispacth = useAppDispatch();
 
-  console.log(user);
+  console.log(user)
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };

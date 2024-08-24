@@ -26,7 +26,7 @@ export const counterSlice = createSlice({
     ) => {
       state.user = action.payload;
     },
-    setToken: (state, action: PayloadAction<typeof initialState.token>) => {
+    setToken: (state, action: PayloadAction<typeof initialState.token | null>) => {
       state.token = action.payload;
     },
     logOut: (state) => {

@@ -45,9 +45,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-
-  // {
-  //       path: "/document/:docId",
-  //       element: <EditDocument />,
-  //     },
 ]);

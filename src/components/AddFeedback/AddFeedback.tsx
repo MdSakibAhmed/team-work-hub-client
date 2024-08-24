@@ -30,13 +30,7 @@ const AddFeedback = ({
         ></textarea>
       </div>
       <div className="flex ">
-        {/* <button
-          type="submit"
-          className="bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 font-semibold py-2 px-4 rounded-lg"
-        >
-          Submit
-        </button> */}
-
+  
         <Button
           type="submit"
           styles="bg-blue-800 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 font-semibold py-2 px-4 rounded-lg"

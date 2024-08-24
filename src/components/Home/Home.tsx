@@ -1,10 +1,9 @@
 import AllDocs from "../AllDocs/AllDocs";
 
 const Home = () => {
- 
   return (
     <div>
-     <AllDocs/>
+      <AllDocs />
     </div>
   );
 };

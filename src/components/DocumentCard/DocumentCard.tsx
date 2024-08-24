@@ -7,9 +7,6 @@ const DocumentCard = ({title,_id}:TDocument) => {
     return (
         <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white px-8 py-4  flex-1 border w-full">
         <div className="font-bold text-xl mb-6">{title}</div>
-        {/* <p className="text-gray-700 text-base mb-4">
-          {content}
-        </p> */}
         <Link to={`/document/${_id}`} >
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

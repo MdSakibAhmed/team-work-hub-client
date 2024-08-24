@@ -34,7 +34,6 @@ const Login = () => {
     if (res.statusCode == 200) {
       Swal.fire("Successfully login", "", "success");
       console.log(res);
-      //   dispacth(setUser({ email: res.data.email, userId: res.data.id }));
       dispacth(
         setUser({
           email: res.data._doc.email,

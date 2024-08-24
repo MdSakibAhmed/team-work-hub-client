@@ -1,9 +1,10 @@
-import { ChangeEvent, SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 import { docApi } from "../redux/api/docApi";
 import Button from "../../shared/Button";
+import { ChangeHandler } from "../../types";
 
 const CreateDoc = () => {
   const [formData, setFormData] = useState<{ title: string; content: string }>({
@@ -14,9 +15,7 @@ const CreateDoc = () => {
 
   const [create] = docApi.useCreateDocMutation();
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange: ChangeHandler = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -40,7 +39,7 @@ const CreateDoc = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">
-          Create A Doc
+          Create Doc
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
